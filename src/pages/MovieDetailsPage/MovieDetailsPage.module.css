@@ -1,0 +1,32 @@
+.movieCard {
+  display: flex;
+  gap: 15px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+.wrapper {
+  padding-top: 20px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.movieTitle {
+  font-weight: 600;
+}
+
+.describe {
+  font-weight: 600;
+}
+.metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom: 1px solid black;
+}
+.active {
+  text-decoration: underline;
+  color: rgb(250, 89, 156);
+  font-weight: 500;
+}

@@ -28,7 +28,9 @@
 <!--  -->
 19. npm install axios (запит на бекенд замість fetch)
 20. Formik(npm i formik) + yup(npm i yup) валідація;
+
 <!--h/w-5  -->
+
 21. Маршрутизатор React (npm install react-router-dom);
 22. Для правильної роботи додатка з маршрутизацією після розгортання на Vercel: файл налаштувань vercel.json в кореневу папку проекту. Вміст:
 <!-- {
@@ -37,8 +39,29 @@
   ]
 } -->
 
-<!-- Видалити????? -->
+<!-- фільми з сервісу TMDB (https://www.themoviedb.org) -->
+<!-- API Key: b16acf67b085ef63f730716a5f3f661c -->
+
+<!-- Для роботи маршрутизатора *** -->
+
+- встановлено маршрутизатор react-router-dom
+
+1. огортаємо в main App <BrowserRouter>
+2. в App: <Routes><Route path='' element={}></Route></Routes>
+3. src/pages (або src/vues)
+4. щоб переходити при натисканні на movie, прописуємо шлях path="/:moviesId"
+5. useParams - для MovieDetailsPage. Витягуємо moviesId
+
+<!--  ------>
 
 - npm install react-hot-toast (сповіщення)
 - Loader - npm install react-loader-spinner --save
 - Modal - npm install react-modal
+
+<!-- стилізація активного лінка  -->
+<!-- buildLinkClass додати на <NavLink> -->
+
+- NavLink автоматично навішує флаг isActive на кожне своє посилання;
+  const buildLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.active);
+  };

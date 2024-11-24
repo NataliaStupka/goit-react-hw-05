@@ -1,0 +1,15 @@
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.wrapper {
+  padding: 15px 30px;
+}
+.author {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.authorName {
+  text-transform: uppercase;
+}

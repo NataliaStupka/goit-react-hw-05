@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+
+  .active {
+    text-decoration: underline;
+    color: rgb(250, 89, 156);
+    font-weight: 700;
+  }
+}

@@ -1,25 +1,42 @@
-import { Form, Formik, Field } from "formik";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import { fetchMovieByName } from "../../services/api";
+import MovieList from "../../components/MovieList/MovieList";
+
+import s from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   useEffect(() => {
     document.title = "Home-work #5 | Movies";
   }, []);
 
-  const initialValues = {
-    movie: "",
+  const [query, setQuery] = useState(""); //що шукаємо
+  const [searchMovies, setSearchMovies] = useState([]); //масив знайденних фільмів
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetchMovieByName(query);
+      setSearchMovies(data);
+    };
+    getData();
+  }, [query]);
+
+  console.log("FIND_MOVIES:", searchMovies);
+
+  const handleSearchValue = (value) => {
+    setQuery(value);
   };
-  const handleSubmit = (value) => {
-    console.log(value);
-  };
+
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
-          <Field type="text" name="movie" placeholder="Введіть назву "></Field>
-          <button type="submit">Search Movie</button>
-        </Form>
-      </Formik>
+      <SearchBar onSearchValue={handleSearchValue} />
+      <ul className={s.movieList}>
+        {searchMovies.map((movie) => (
+          <li key={movie.id} className={s.movieItem}>
+            <MovieList movie={movie} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

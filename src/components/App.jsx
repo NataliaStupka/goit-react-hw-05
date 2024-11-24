@@ -20,12 +20,14 @@ function App() {
       <Routes>
         {/* path - шлях */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/:movieId" element={<MovieDetailsPage />}>
+
+        <Route path="/movies" element={<MoviesPage />} />
+
+        {/* <Route path="/:movieId" element={<MovieDetailsPage />}> */}
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
           <Route path="cast" element={<MovieCasts />} />
           <Route path="reviews" element={<MovieReviews />} />
         </Route>
-
-        <Route path="/movies" element={<MoviesPage />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

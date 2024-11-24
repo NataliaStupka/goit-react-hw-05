@@ -28,16 +28,17 @@
 <!--  -->
 19. npm install axios (запит на бекенд замість fetch)
 20. Formik(npm i formik) + yup(npm i yup) валідація;
+21. npm install react-hot-toast ((сповіщення)). Toaster в main біля App
 
 <!--h/w-5  -->
 
 21. Маршрутизатор React (npm install react-router-dom);
 22. Для правильної роботи додатка з маршрутизацією після розгортання на Vercel: файл налаштувань vercel.json в кореневу папку проекту. Вміст:
-<!-- {
-  "rewrites":  [
+    {
+    "rewrites": [
     {"source": "/(.*)", "destination": "/"}
-  ]
-} -->
+    ]
+    }
 
 <!-- фільми з сервісу TMDB (https://www.themoviedb.org) -->
 <!-- API Key: b16acf67b085ef63f730716a5f3f661c -->
@@ -59,7 +60,8 @@
 - Modal - npm install react-modal
 
 <!-- стилізація активного лінка  -->
-<!-- buildLinkClass додати на <NavLink> -->
+
+buildLinkClass додати на <NavLink>
 
 - NavLink автоматично навішує флаг isActive на кожне своє посилання;
   const buildLinkClass = ({ isActive }) => {

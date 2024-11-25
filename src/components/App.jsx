@@ -21,8 +21,7 @@ function App() {
         {/* path - шлях */}
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/movies" element={<MoviesPage />} />
-
+        <Route path="movies" element={<MoviesPage />} />
         {/* <Route path="/:movieId" element={<MovieDetailsPage />}> */}
         <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
           <Route path="cast" element={<MovieCasts />} />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { fetchMovies } from "../../services/api";
+import { fetchTrendingMovies } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
 
 import s from "./HomePage.module.css";
@@ -14,8 +14,8 @@ const HomePage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { results } = await fetchMovies();
-      console.log("Movies:", results);
+      const { results } = await fetchTrendingMovies();
+      // console.log("Movies:", results);
       setMovies(results);
     };
     getData();
@@ -24,13 +24,7 @@ const HomePage = () => {
   return (
     <div className={s.container}>
       <h2>Trending today:</h2>
-      <ul className={s.movieList}>
-        {movies.map((movie) => (
-          <li key={movie.id} className={s.movieItem}>
-            <MovieList movie={movie} />
-          </li>
-        ))}
-      </ul>
+      <MovieList movies={movies} />
     </div>
   );
 };

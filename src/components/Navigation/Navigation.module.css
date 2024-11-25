@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  gap: 20px;
+
+  .active {
+    text-decoration: underline;
+    color: rgb(250, 89, 156);
+    font-weight: 700;
+  }
+}

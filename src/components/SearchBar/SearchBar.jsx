@@ -1,5 +1,6 @@
 import { Form, Formik, Field } from "formik";
 import toast from "react-hot-toast";
+import PropTypes from "prop-types";
 
 const SearchBar = ({ onSearchValue }) => {
   //початкові значення
@@ -27,6 +28,10 @@ const SearchBar = ({ onSearchValue }) => {
       </Formik>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  onSearchValue: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

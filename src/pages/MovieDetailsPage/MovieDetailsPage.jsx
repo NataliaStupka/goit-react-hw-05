@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import {
   Link,
   useParams,
@@ -40,7 +40,7 @@ const MovieDetailsPage = () => {
     return <h2>Loading movie...</h2>;
   }
 
-  //????
+  //genres
   const genres = movie.genres.map((genre) => {
     return genre.name;
   });
@@ -95,7 +95,9 @@ const MovieDetailsPage = () => {
       </div>
 
       {/* вкладенність */}
-      <Outlet />
+      <Suspense fallback={<h2>Loading details ... 😎</h2>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

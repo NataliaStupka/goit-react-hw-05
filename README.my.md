@@ -63,11 +63,12 @@
    на <Link to='' state={location} />
    const goBackLink = useRef(location.state ?? "/movies"); - при перезагрузці Ref очищується, ?? поверне хочаб на початок;
    <Link to={goBackLink.current}>Go back</Link>
-
+8. lazy (() => import('../')) завантажимо пізніше, те що відразу не потрібне; огорнути Suspense Routes
+<Suspense fallback={<h2>Loading...</h2>}><Routes>...</Routes></Suspense>
    <!--  ------>
 
-- npm install react-hot-toast (сповіщення)
-- Loader - npm install react-loader-spinner --save
+- npm install react-hot-toast (сповіщення);
+- Loader - npm install react-loader-spinner --save;
 - Modal - npm install react-modal
 
 <!-- стилізація активного лінка  -->

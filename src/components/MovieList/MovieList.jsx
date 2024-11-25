@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import s from "./MovieList.module.css";
 import defaultImg from "../../assets/default-images";
+import PropTypes from "prop-types";
 
 const MovieList = ({ movies }) => {
   const location = useLocation(); //місцезнаходження, маршрут для кнопки GoBack (звідки прийшло)
@@ -30,6 +31,10 @@ const MovieList = ({ movies }) => {
       </ul>
     </>
   );
+};
+
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieList;

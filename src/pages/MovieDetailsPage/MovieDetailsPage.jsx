@@ -1,5 +1,11 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, Outlet, NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import {
+  Link,
+  useParams,
+  Outlet,
+  NavLink,
+  useLocation,
+} from "react-router-dom";
 import { fetchMoviesById } from "../../services/api";
 import defaultImg from "../../assets/default-images";
 import clsx from "clsx";
@@ -15,6 +21,11 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams(); //витягуємо id
 
   const [movie, setMovie] = useState(null);
+
+  // Link - Go Back
+  const location = useLocation(); //кнопка Go back
+  //console.log("loc", location);
+  const goBackLink = useRef(location.state ?? "/"); //зберігаємо, для повернення (робочої кнопки) при переході далі
 
   useEffect(() => {
     const getData = async () => {
@@ -36,7 +47,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <Link>Go back</Link>
+      {/* так кнопка буде робоча, навіть якщо будемо переходити в 'глибину' */}
+      <Link to={goBackLink.current}>Go back</Link>
+
       <div className={s.movieCard}>
         <div>
           <img
@@ -51,9 +64,9 @@ const MovieDetailsPage = () => {
         <div className={s.wrapper}>
           <ul className={s.description}>
             <li className={s.movieTitle}>
-              {movie.title} ({movie.release_date})
+              {movie.title} ({movie.release_date.slice(0, 4)})
             </li>
-            <li>User score: {movie.vote_average}</li>
+            <li>User score: {Math.floor(movie.vote_average * 10)} %</li>
             <li>
               <p className={s.describe}>Overview</p>
               <p className={s.movieValue}>{movie.overview}</p>

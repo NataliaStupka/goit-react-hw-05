@@ -1,4 +1,4 @@
-Створення проекту:
+Створення/налаштування проекту:
 
 1. New репозиторій(порожній) на github.com;
 2. Клонуємо на комп
@@ -45,6 +45,8 @@
 
 <!-- Для роботи маршрутизатора *** -->
 
+--- Виконання д/з #5 ---
+
 - встановлено маршрутизатор react-router-dom
 
 1. огортаємо в main App <BrowserRouter>
@@ -52,8 +54,17 @@
 3. src/pages (або src/vues)
 4. щоб переходити при натисканні на movie, прописуємо шлях path="/:moviesId"
 5. useParams - для MovieDetailsPage. Витягуємо moviesId
+6. при пошуку, прописати в url що шукаємо - useSearchParams(). При перезавантаженні url не змінюється
+   6.1. const [searchParams, setSearchParams] = useSearchParams();
+   searchParams.set('query') - записує/запам'ятовує значення;
+   const query = searchParams.get("query"); - витягує/використовує (цим можна замінити const [query, setQuery] = useState("");)
+7. кнопка GoBack.
+   const location = useLocation() - звідки переходимо;
+   на <Link to='' state={location} />
+   const goBackLink = useRef(location.state ?? "/movies"); - при перезагрузці Ref очищується, ?? поверне хочаб на початок;
+   <Link to={goBackLink.current}>Go back</Link>
 
-<!--  ------>
+   <!--  ------>
 
 - npm install react-hot-toast (сповіщення)
 - Loader - npm install react-loader-spinner --save
